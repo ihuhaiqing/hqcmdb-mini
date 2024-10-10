@@ -1,5 +1,3 @@
-const app = getApp()
-
 Page({
   onShow() {
     wx.reportAnalytics('enter_home_programmatically', {})
@@ -93,12 +91,6 @@ Page({
         this.setData({theme})
       })
     }
-
-    const res = await app.call({
-      path:'/api/host/targets/'
-    })
-    this.setData({targets: res})
-    console.log('业务返回结果',res)
   },
 
   kindToggle(e) {

@@ -54,6 +54,15 @@ App({
    */
   async call(obj, number=0){
     const that = this
+
+    const token = wx.getStorageSync('access_token'); // 获取存储的 token
+    const headers = {
+      'X-WX-SERVICE': 'django-rq4m', // 填入服务名称
+    };
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
     if(that.cloud == null){
       that.cloud = new wx.cloud.Cloud({
         resourceAppid: 'wxda18bac492a1569e', // 微信云托管环境所属账号，服务商appid、公众号或小程序appid
@@ -65,12 +74,9 @@ App({
       const result = await that.cloud.callContainer({
         path: obj.path, // 填入业务自定义路径和参数，根目录，就是 / 
         method: obj.method||'GET', // 按照自己的业务开发，选择对应的方法
+        data: obj.data,
         // dataType:'text', // 如果返回的不是json格式，需要添加此项
-        header: {
-          'X-WX-SERVICE': 'django-rq4m', // xxx中填入服务名称（微信云托管 - 服务管理 - 服务列表 - 服务名称）
-          // 其他header参数
-        }
-        // 其余参数同 wx.request
+        header: headers
       })
       console.log(`微信云托管调用结果${result.errMsg} | callid:${result.callID}`)
       return result.data // 业务数据在data中

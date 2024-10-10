@@ -1,2 +1,13 @@
 <!--page/hqcmdb/index.wxml-->
-<text>page/hqcmdb/index.wxml</text>
+
+
+
+<view class="container">
+    <block wx:for-items="{{targets}}" wx:key="id">
+      <view>{{item.targets}}</view>
+    </block>
+    <button bindtap="login">登录</button>
+    <button bindtap="logout">退出</button>
+    <button bindtap="getTargets">Targets</button>
+</view>
+      

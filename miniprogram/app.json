@@ -1,10 +1,10 @@
 {
   "pages": [
+    "page/hqcmdb/index",
     "page/component/index",
     "page/API/index",
     "page/cloud/index",
-    "page/extend/index",
-    "page/hqcmdb/index"
+    "page/extend/index"
   ],
   "subpackages": [
     {
@@ -224,6 +224,12 @@
     "backgroundColor": "@tabBarBackgroundColor",
     "list": [
       {
+        "pagePath": "page/hqcmdb/index",
+        "iconPath": "@iconPathCloud",
+        "selectedIconPath": "@selectedIconPathCloud",
+        "text": "HQCMDB"
+      },
+      {
         "pagePath": "page/component/index",
         "iconPath": "@iconPathComponent",
         "selectedIconPath": "@selectedIconPathComponent",
@@ -246,12 +252,6 @@
         "iconPath": "@iconPathCloud",
         "selectedIconPath": "@selectedIconPathCloud",
         "text": "云开发"
-      },
-      {
-        "pagePath": "page/hqcmdb/index",
-        "iconPath": "@iconPathCloud",
-        "selectedIconPath": "@selectedIconPathCloud",
-        "text": "HQCMDB"
       }
     ]
   },
